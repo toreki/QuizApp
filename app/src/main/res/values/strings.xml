@@ -1,0 +1,51 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<string name="app_name">Quiz App</string>
+    <string name="howto">
+        Használat:\n
+        Rádió gomb:\n
+        csak egy válasz adható\n
+        jó válasz 1 pont\n
+        hibás válasz 0 pont\n
+        Checkbox:\n
+        több válasz is jó lehet\n
+        hibátlan válasz 11 pont\n
+        rossz válasz bejelölée és jó válasz kihagyása 0 pont
+    </string>
+
+    <string name="nextButton">Következő</string>
+    <string name="submitAnswers">Válasz küldése</string>
+    <string name="againButton">Újra</string>
+
+    <string name="question1_question">Gépjárművel hogyan előzheted meg a kerékpárost?</string>
+    <string name="question1_answer2">Lakott területen 1m, kívül 1,5m</string>
+    <string name="question1_answer1">Ha záróvonal van, akkor sávon belül is.</string>
+    <string name="question1_answer3">Ha fél métert hagyok, az már elég.</string>
+    <string name="question1_solution">
+        A biztonságos oldaltávolság nem fél métert jelent. Az út széle gyakran kátyús, és tele van üvegszilánkokkal.
+        Ezért a kresz 2017-es tervezete szerint lakott területen 1m, kívül 1,5m lesz az előírt távolság.
+    </string>
+
+    <string name="question2_question">Miért 15–20km/h a gépjárművek átlagsebessége csúcsidőben?</string>
+    <string name="question2_answer1">a bringások lassítják a forgalmat</string>
+    <string name="question2_answer2">a többi autós miatt</string>
+    <string name="question2_answer3">megint feltúrták a várost</string>
+    <string name="question2_solution">
+        A túl sok autó tartja fel egymást. Ha segítőkészen félrehúzódsz, legalább a bringások tudnak haladni.
+    </string>
+
+    <string name="question3_question">Mik kötelező tartozékok a kerékpáron?</string>
+    <string name="question3_answer1">hátul háromszög alakú piros prizma</string>
+    <string name="question3_answer2">fehér első prizma</string>
+    <string name="question3_answer3">elöl fehér vagy borostyánsárga, hátul piros lámpa</string>
+    <string name="question3_answer4">borostyánsárga prizma a pedálokon</string>
+    <string name="question3_solution">
+        Kötelező tartozékok: jól működő kormány, két független fék, elöl fehér prizma, hátul piros prizma (háromszög alaú nem lehet).
+        Elöl fehér, vagy borostyánsárga, hátul piros lámpa, ami a kerékpároson is lehet.
+        Csengő, legalább sz első keréken két borostyánsárga prizma, helyettesíthető fényvisszaverős külsővel.
+        Lakott területen kívül, rossz látási viszonyok között láthatósági mellény.
+        Lakott területen kívül 40km/h felett bukósisak.
+    </string>
+
+    <string name="result_string">Eredmény: <xliff:g id="name">%d</xliff:g></string>
+
+</resources>

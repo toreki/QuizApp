@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.toreki.quizapp.MainActivity">
+
+    <LinearLayout android:id="@+id/main_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        // howto
+        <LinearLayout android:id="@+id/howto"
+            style="@style/QuestionElements"
+            android:orientation="vertical">
+
+            // howto text
+            <TextView
+                android:id="@+id/howto_txt"
+                style="@style/QuestionLinearLayout"
+                android:onClick="nextButton"
+                android:text="@string/howto">
+            </TextView>
+
+            // Next
+            <Button android:id="@+id/next_button"
+                style="@style/QuestionButtons"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:onClick="nextButton"
+                android:text="@string/nextButton" />
+
+
+        </LinearLayout>
+
+        // questions
+        <LinearLayout
+            android:id="@+id/questions"
+            style="@style/QuestionElements"
+            android:orientation="vertical">
+
+            // q1
+            <LinearLayout
+                android:id="@+id/q1"
+                style="@style/QuestionLinearLayout"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/q1_q"
+                    style="@style/QuestionElements"
+                    android:text="@string/question1_question"
+                    android:textAppearance="@style/FontQuestion" />
+
+                <RadioGroup
+                    android:id="@+id/radiogroup_q1"
+                    style="@style/QuestionElements"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:id="@+id/radio_q1_a1"
+                        style="@style/QuestionElements"
+                        android:text="@string/question1_answer1"
+                        android:textAppearance="@style/FontAnswer" />
+
+                    <RadioButton
+                        android:id="@+id/radio_q1_a2"
+                        style="@style/QuestionElements"
+                        android:text="@string/question1_answer2"
+                        android:textAppearance="@style/FontAnswer" />
+
+                    <RadioButton
+                        android:id="@+id/radio_q1_a3"
+                        style="@style/QuestionElements"
+                        android:text="@string/question1_answer3"
+                        android:textAppearance="@style/FontAnswer" />
+
+                </RadioGroup>
+
+
+                <TextView
+                    android:id="@+id/solution_q1"
+                    style="@style/QuestionElements"
+                    android:layout_width="match_parent"
+                    android:text="@string/question1_solution"
+                    android:textAppearance="@style/FontSolution" />
+
+                <ImageView android:id="@+id/solution_q1_image"
+                    style="@style/QuestionElements"
+                    android:maxHeight="450dp"
+                    android:src="@drawable/oldaltaavolsag"/>
+
+            </LinearLayout>
+
+            // separator line
+            <LinearLayout style="@style/SeparatorLineLayout" />
+
+            // q2
+            <LinearLayout
+                android:id="@+id/q2"
+                style="@style/QuestionLinearLayout"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/q2_q"
+                    style="@style/QuestionElements"
+                    android:text="@string/question2_question"
+                    android:textAppearance="@style/FontQuestion" />
+
+                <RadioGroup
+                    android:id="@+id/radiogroup_q2"
+                    style="@style/QuestionElements"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:id="@+id/radio_q2_a1"
+                        style="@style/QuestionElements"
+                        android:text="@string/question2_answer1"
+                        android:textAppearance="@style/FontAnswer" />
+
+                    <RadioButton
+                        android:id="@+id/radio_q2_a2"
+                        style="@style/QuestionElements"
+                        android:text="@string/question2_answer2"
+                        android:textAppearance="@style/FontAnswer" />
+
+                    <RadioButton
+                        android:id="@+id/radio_q2_a3"
+                        style="@style/QuestionElements"
+                        android:text="@string/question2_answer3"
+                        android:textAppearance="@style/FontAnswer" />
+
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/solution_q2"
+                    style="@style/QuestionElements"
+                    android:text="@string/question2_solution"
+                    android:textAppearance="@style/FontSolution" />
+
+            </LinearLayout>
+
+            // separator line
+            <LinearLayout style="@style/SeparatorLineLayout" />
+
+            // q3
+            <LinearLayout
+                android:id="@+id/q3"
+                style="@style/QuestionLinearLayout"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/q3_q"
+                    style="@style/QuestionElements"
+                    android:text="@string/question3_question"
+                    android:textAppearance="@style/FontQuestion" />
+
+                <CheckBox
+                    android:id="@+id/checkbox_q3_a1"
+                    style="@style/QuestionElements"
+                    android:text="@string/question3_answer1"
+                    android:textAppearance="@style/FontAnswer" />
+
+                <CheckBox
+                    android:id="@+id/checkbox_q3_a2"
+                    style="@style/QuestionElements"
+                    android:text="@string/question3_answer2"
+                    android:textAppearance="@style/FontAnswer" />
+
+                <CheckBox
+                    android:id="@+id/checkbox_q3_a3"
+                    style="@style/QuestionElements"
+                    android:text="@string/question3_answer3"
+                    android:textAppearance="@style/FontAnswer" />
+
+                <CheckBox
+                    android:id="@+id/checkbox_q3_a4"
+                    style="@style/QuestionElements"
+                    android:text="@string/question3_answer4"
+                    android:textAppearance="@style/FontAnswer" />
+
+                <TextView
+                    android:id="@+id/solution_q3"
+                    style="@style/QuestionElements"
+                    android:text="@string/question3_solution"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/FontSolution" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        // submit
+        <LinearLayout android:id="@+id/submit"
+            style="@style/QuestionLinearLayout"
+            android:orientation="vertical" >
+
+            // submit
+            <Button
+                android:id="@+id/submit_answers"
+                style="@style/QuestionButtons"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:onClick="submitAnswers"
+                android:text="@string/submitAnswers" />
+
+        </LinearLayout>
+
+        // again
+        <LinearLayout android:id="@+id/again"
+            style="@style/QuestionLinearLayout"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/again_text"
+                style="@style/QuestionElements"
+                android:text=""
+                android:textAppearance="@style/FontQuestion" />
+
+            // again
+            <Button
+                android:id="@+id/again_button"
+                style="@style/QuestionButtons"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:onClick="againButton"
+                android:text="@string/againButton" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
