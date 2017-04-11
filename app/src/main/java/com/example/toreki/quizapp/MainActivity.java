@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     View solution1;
     View solution2;
     View solution3;
-    View solution1image;
+    ImageView solution1image;
 
     int points = 0;
 

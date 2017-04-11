@@ -76,6 +76,10 @@
 
                 </RadioGroup>
 
+                <ImageView android:id="@+id/solution_q1_image"
+                    style="@style/QuestionElements"
+                    android:maxHeight="450dp"
+                    android:src="@drawable/oldaltaavolsag"/>
 
                 <TextView
                     android:id="@+id/solution_q1"
