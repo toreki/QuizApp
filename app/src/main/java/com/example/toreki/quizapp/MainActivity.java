@@ -1,25 +1,22 @@
 package com.example.toreki.quizapp;
 
-import android.content.pm.ActivityInfo;
-import android.graphics.Color;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    int RED   = Color.parseColor("#ff6161");
-    int GREEN = Color.parseColor("#61ff61");
-    int WHITE = Color.parseColor("#ffffff");
+    View mainScrollView;
     View howtoLayout;
     View questionLayout;
     View submitLayout;
@@ -38,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
     boolean correct2 = false;
     boolean correct3 = true;
 
+    boolean SHOW = true;
+    boolean HIDE = false;
 
     /**
      * disable change orientation
@@ -56,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Log.v("MainActivity", "onCreate");
+        mainScrollView = (ScrollView) findViewById(R.id.scrollView);
         howtoLayout = (LinearLayout) findViewById(R.id.howto);
         questionLayout = (LinearLayout) findViewById(R.id.questions);
         submitLayout = (LinearLayout) findViewById(R.id.submit);
@@ -67,16 +67,25 @@ public class MainActivity extends AppCompatActivity {
         solution1image = (ImageView) findViewById(R.id.solution_q1_image);
 
 
-        howtoLayout.setVisibility(View.VISIBLE);
-        questionLayout.setVisibility(View.GONE);
-        submitLayout.setVisibility(View.GONE);
-        againLayout.setVisibility(View.GONE);
+        toggleSolution(howtoLayout,    SHOW);
+        toggleSolution(questionLayout, HIDE);
+        toggleSolution(submitLayout,   HIDE);
+        toggleSolution(againLayout,    HIDE);
 
-        solution1.setVisibility(View.GONE);
-        solution2.setVisibility(View.GONE);
-        solution3.setVisibility(View.GONE);
-        solution1image.setVisibility(View.GONE);
+        toggleSolution(solution1,      HIDE);
+        toggleSolution(solution2,      HIDE);
+        toggleSolution(solution3,      HIDE);
+        toggleSolution(solution1image, HIDE);
+    }
 
+    /**
+     * show or hide view
+     * @param view view name to show or hide
+     * @param visibility boolean to set state
+     */
+    public void toggleSolution(View view, boolean visibility) {
+        if (visibility) { view.setVisibility(View.VISIBLE); }
+        else { view.setVisibility(View.GONE); }
     }
 
     /**
@@ -86,10 +95,10 @@ public class MainActivity extends AppCompatActivity {
      */
     public void nextButton(View view) {
         Log.v("MainActivity", "nextButton clicked");
-        howtoLayout.setVisibility(View.GONE);
-        questionLayout.setVisibility(View.VISIBLE);
-        submitLayout.setVisibility(View.VISIBLE);
-        againLayout.setVisibility(View.GONE);
+        toggleSolution(howtoLayout,      HIDE);
+        toggleSolution(questionLayout,   SHOW);
+        toggleSolution(submitLayout,     SHOW);
+        toggleSolution(againLayout,      HIDE);
     }
 
     /**
@@ -132,20 +141,20 @@ public class MainActivity extends AppCompatActivity {
             if (correct1) {
                 // correct ans
                 if (an == idx+1) {
-                    Log.v("MainActivity","GREEN");
-                    button.setBackgroundColor(GREEN);
+                    Log.v("MainActivity","goodAnsColor");
+                    button.setBackgroundColor(ContextCompat.getColor(this, R.color.answerGreen));
                     points +=1;
                 }
             }
             else {
                 // wrong ans
                 if (an == idx+1) {
-                    Log.v("MainActivity","RED");
-                    button.setBackgroundColor(RED);
+                    Log.v("MainActivity","badAnsColor");
+                    button.setBackgroundColor(ContextCompat.getColor(this, R.color.answerRed));
                 }
                 if (an == goodAnswers1) {
-                    Log.v("MainActivity","GREEN");
-                    button.setBackgroundColor(GREEN);
+                    Log.v("MainActivity","goodAnsColor");
+                    button.setBackgroundColor(ContextCompat.getColor(this, R.color.answerGreen));
                 }
             }
             Log.v("MainActivity","rId: " + an);
@@ -177,20 +186,20 @@ public class MainActivity extends AppCompatActivity {
             if (correct2) {
                 // correct ans
                 if (an == idx2+1) {
-                    Log.v("MainActivity","GREEN");
-                    button.setBackgroundColor(GREEN);
+                    Log.v("MainActivity","goodAnsColor");
+                    button.setBackgroundColor(ContextCompat.getColor(this, R.color.answerGreen));
                     points +=1;
                 }
             }
             else {
                 // wrong ans
                 if (an == idx2+1) {
-                    Log.v("MainActivity","RED");
-                    button.setBackgroundColor(RED);
+                    Log.v("MainActivity","badAnsColor");
+                    button.setBackgroundColor(ContextCompat.getColor(this, R.color.answerRed));
                 }
                 if (an == goodAnswers2) {
-                    Log.v("MainActivity","GREEN");
-                    button.setBackgroundColor(GREEN);
+                    Log.v("MainActivity","goodAnsColor");
+                    button.setBackgroundColor(ContextCompat.getColor(this, R.color.answerGreen));
                 }
             }
             Log.v("MainActivity","rId: " + an);
@@ -219,7 +228,8 @@ public class MainActivity extends AppCompatActivity {
                     correct3 = false;
                 }
                 // good option is allways green
-                checkBox.setBackgroundColor(GREEN);
+                Log.v("MainActivity","goodAnsColor");
+                checkBox.setBackgroundColor(ContextCompat.getColor(this, R.color.answerGreen));
             }
             else
             {
@@ -227,8 +237,8 @@ public class MainActivity extends AppCompatActivity {
                 // wrong option
                 if (answerIsSelected) {
                     // wrong answer checked
-                    Log.v("MainActivity","sel");
-                    checkBox.setBackgroundColor(RED);
+                    Log.v("MainActivity","badAnsColor");
+                    checkBox.setBackgroundColor(ContextCompat.getColor(this, R.color.answerRed));
                     correct3 = false;
                 }
             }
@@ -240,28 +250,23 @@ public class MainActivity extends AppCompatActivity {
             points += 1;
         }
 
-        // display restult
+        // display result
         TextView text = (TextView) findViewById(R.id.again_text);
         String resString = getString(R.string.result_string, points );
         text.setText(String.valueOf(resString));
 
+        toggleSolution(howtoLayout,    HIDE);
+        toggleSolution(questionLayout, SHOW);
+        toggleSolution(submitLayout,   HIDE);
+        toggleSolution(againLayout,    SHOW);
 
+        toggleSolution(solution1,      SHOW);
+        toggleSolution(solution2,      SHOW);
+        toggleSolution(solution3,      SHOW);
+        toggleSolution(solution1image, SHOW);
 
-
-        /**
-         * TODO set radio to correct or wrong colors
-         */
-
-        howtoLayout.setVisibility(View.GONE);
-        questionLayout.setVisibility(View.VISIBLE);
-        submitLayout.setVisibility(View.GONE);
-        againLayout.setVisibility(View.VISIBLE);
-
-        solution1.setVisibility(View.VISIBLE);
-        solution2.setVisibility(View.VISIBLE);
-        solution3.setVisibility(View.VISIBLE);
-        solution1image.setVisibility(View.VISIBLE);
-
+        // scroll tot top of scrollView to see answers
+        mainScrollView.scrollTo(0, mainScrollView.getTop());
     }
 
     /**
@@ -284,17 +289,15 @@ public class MainActivity extends AppCompatActivity {
             RadioGroup radioGroup = (RadioGroup) findViewById(rgId);
             radioGroup.clearCheck();
 
-            // enable radio buttons
+            // enable radio buttons in all radioGroups
             for (int an = 1; an <= 3; an++) {
                 String buttonName = "radio_q" + qu + "_a" + an;
                 Log.v("MainActivity","button: " + buttonName);
 
                 int rId = getResources().getIdentifier(buttonName, "id", getPackageName());
                 Button button = (Button) findViewById(rId);
-                /**
-                 * TODO set colors to colors.xml
-                 */
-                button.setBackgroundColor(WHITE);
+                Log.v("MainActivity","defAnsColor");
+                button.setBackgroundColor(ContextCompat.getColor(this, R.color.answerWhite));
                 button.setEnabled(true);
             }
         }
@@ -310,7 +313,8 @@ public class MainActivity extends AppCompatActivity {
 
             checkBox.setEnabled(true);
             checkBox.setChecked(false);
-            checkBox.setBackgroundColor(WHITE);
+            Log.v("MainActivity","defAnsColor");
+            checkBox.setBackgroundColor(ContextCompat.getColor(this, R.color.answerWhite));
 
         }
 
@@ -319,20 +323,15 @@ public class MainActivity extends AppCompatActivity {
         correct3 = true;
         points = 0;
 
-        /**
-         * TODO set radio to default colors
-         */
+        toggleSolution(howtoLayout,    SHOW);
+        toggleSolution(questionLayout, HIDE);
+        toggleSolution(submitLayout,   HIDE);
+        toggleSolution(againLayout,    HIDE);
 
-        howtoLayout.setVisibility(View.VISIBLE);
-        questionLayout.setVisibility(View.GONE);
-        submitLayout.setVisibility(View.GONE);
-        againLayout.setVisibility(View.GONE);
-
-        solution1.setVisibility(View.GONE);
-        solution2.setVisibility(View.GONE);
-        solution3.setVisibility(View.GONE);
-        solution1image.setVisibility(View.GONE);
-
+        toggleSolution(solution1,      HIDE);
+        toggleSolution(solution2,      HIDE);
+        toggleSolution(solution3,      HIDE);
+        toggleSolution(solution1image, HIDE);
     }
 
 }

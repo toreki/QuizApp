@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.toreki.quizapp.MainActivity">
 
     <LinearLayout android:id="@+id/main_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        // howto
+        <!-- howto -->
         <LinearLayout android:id="@+id/howto"
             style="@style/QuestionElements"
             android:orientation="vertical">
 
-            // howto text
+            <!-- howto text -->
             <TextView
                 android:id="@+id/howto_txt"
                 style="@style/QuestionLinearLayout"
@@ -23,7 +24,7 @@
                 android:text="@string/howto">
             </TextView>
 
-            // Next
+            <!-- Next -->
             <Button android:id="@+id/next_button"
                 style="@style/QuestionButtons"
                 android:layout_gravity="center"
@@ -31,16 +32,15 @@
                 android:onClick="nextButton"
                 android:text="@string/nextButton" />
 
-
         </LinearLayout>
 
-        // questions
+        <!-- questions -->
         <LinearLayout
             android:id="@+id/questions"
             style="@style/QuestionElements"
             android:orientation="vertical">
 
-            // q1
+            <!-- q1 -->
             <LinearLayout
                 android:id="@+id/q1"
                 style="@style/QuestionLinearLayout"
@@ -87,15 +87,16 @@
 
                 <ImageView android:id="@+id/solution_q1_image"
                     style="@style/QuestionElements"
+                    android:contentDescription="@string/q1ImageDescription"
                     android:maxHeight="450dp"
                     android:src="@drawable/oldaltaavolsag"/>
 
             </LinearLayout>
 
-            // separator line
+            <!-- separator line -->
             <LinearLayout style="@style/SeparatorLineLayout" />
 
-            // q2
+            <!-- q2 -->
             <LinearLayout
                 android:id="@+id/q2"
                 style="@style/QuestionLinearLayout"
@@ -140,10 +141,10 @@
 
             </LinearLayout>
 
-            // separator line
+            <!-- separator line -->
             <LinearLayout style="@style/SeparatorLineLayout" />
 
-            // q3
+            <!-- q3 -->
             <LinearLayout
                 android:id="@+id/q3"
                 style="@style/QuestionLinearLayout"
@@ -190,12 +191,12 @@
 
         </LinearLayout>
 
-        // submit
+        <!-- submit -->
         <LinearLayout android:id="@+id/submit"
             style="@style/QuestionLinearLayout"
             android:orientation="vertical" >
 
-            // submit
+            <!-- submit -->
             <Button
                 android:id="@+id/submit_answers"
                 style="@style/QuestionButtons"
@@ -206,7 +207,7 @@
 
         </LinearLayout>
 
-        // again
+        <!-- again -->
         <LinearLayout android:id="@+id/again"
             style="@style/QuestionLinearLayout"
             android:orientation="vertical" >
@@ -217,7 +218,7 @@
                 android:text=""
                 android:textAppearance="@style/FontQuestion" />
 
-            // again
+            <!-- again -->
             <Button
                 android:id="@+id/again_button"
                 style="@style/QuestionButtons"
